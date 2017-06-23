@@ -1,0 +1,31 @@
+<h3>Budget Entries:</h3>
+
+<table dir="ltr" width="500" border="1" 
+			summary="purpose/structure for speech output">
+	<colgroup width="50%" />
+	<colgroup id="colgroup" class="colgroup" align="center" 
+			valign="middle" title="title" width="1*" 
+			span="2" style="background:#ddd;" />
+	<thead>
+		<tr>
+			<th scope="col">Category</th>
+			<th scope="col">Description</th>
+			<th scope="col">Amount</th>
+          <th scope="col">Date</th>
+		</tr>
+	</thead>
+{% if inputs_month %}
+    {%for input in inputs_month%}
+    	<tbody>
+    		<tr>
+    			<td>{{ input.category}}</td>
+    			<td>{{ input.description}}</td>
+           	<td>$ {{ input.amount}}</td>
+            	<td>{{ input.date}}</td>
+    		</tr>
+    	</tbody>
+    {% endfor %} 
+{% else %}
+    <h3>TEST</h3>
+{% endif %}
+</table>
