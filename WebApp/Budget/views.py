@@ -17,10 +17,12 @@ def detail(request, budget_id):
     return render(request, 'budget/detail.html', {'expense': expense})
 
 def months(request, month_id):
-    diction = {'January':'01','February':'02','March':'03','April':'04','May':'05','June':'06','July':'07','August':'08','September':'09','October':'10','November':'11','December':'12'}
-    convert = diction[month_id]
+    month_id = month_id.lower()
+    diction = {'january':'01','february':'02','march':'03','april':'04','may':'05','june':'06','july':'07','august':'08','september':'09','october':'10','november':'11','december':'12'}
     try:
+        diction[month_id]
+        convert = diction[month_id]
         inputs_month = Expense.objects.filter(date__month=convert)
-    except Expense.DoesNotExist:
-        raise Http404('Month Does Not Exist!')
-    return render(request, 'budget/months.html', {'inputs_month': inputs_month})
+        return render(request, 'budget/months.html', {'inputs_month': inputs_month})
+    except KeyError:
+        raise Http404(month_id + ' is not a month!')
