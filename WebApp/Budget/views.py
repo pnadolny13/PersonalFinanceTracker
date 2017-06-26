@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Expense
 
 
@@ -10,10 +10,7 @@ def index(request):
 
 
 def detail(request, budget_id):
-    try:
-        expense = Expense.objects.get(pk=budget_id)
-    except Expense.DoesNotExist:
-        raise Http404('Budget does not exist!')
+    expense = get_object_or_404(Expense, pk=budget_id)
     return render(request, 'budget/detail.html', {'expense': expense})
 
 def months(request, month_id):

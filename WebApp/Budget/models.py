@@ -12,9 +12,9 @@ class Expense(models.Model):
         return self.description + ': ' + str(self.date)
     
 class Input(models.Model):
-    amount = models.ForeignKey(Expense, on_delete=models.CASCADE)
+    expense = models.ForeignKey(Expense, on_delete=models.CASCADE)
     files_type =models.CharField(max_length=20)
     input_title = models.CharField(max_length=200)
-
+    is_favorite = models.BooleanField(default = False)
     def __str__(self):
-        return self.input_title
+        return self.expense + ' : ' + self.input_title + self.files_type

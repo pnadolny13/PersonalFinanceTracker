@@ -1,1 +1,9 @@
-{{ expense }}
+<img src='https://nqki340a6g43eofbpz6nu7kk-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/BBB124-Top-5-Homemade-Ice-Cream-Flavors-Thumbnail-FINAL-2-1024x576.jpg'>
+<h1>{{expense.description}}<h1>
+<h3>{{expense.amount}}</h3>
+
+<ul>
+    {% for item in expense.input_set.all %}
+        <li> {{input}} : {{input.files_type}}</li>
+    {% endfor %}
+</ul>

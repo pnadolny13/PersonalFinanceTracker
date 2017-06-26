@@ -1,5 +1,11 @@
 <h3>Budget Entries:</h3>
-
+<style>
+    body {
+        font-family: Georgia, "Times New Roman", Times, serif;    
+        color: black;
+        background-color: #DCDCDC
+        }
+</style>
 <table dir="ltr" width="500" border="1" 
 			summary="purpose/structure for speech output">
 	<colgroup width="50%" />
@@ -18,7 +24,7 @@
     {%for budget in all_budget%}
     	<tbody>
     		<tr>
-    			<td><li><a href = "/budget/{{ budget.id}}/">{{ budget.category}}</a></li></td>
+    			<td><li><a href = "{% url 'Budget:detail' budget.id %}">{{ budget.category}}</a></li></td>
     			<td>{{ budget.description}}</td>
            	<td>$ {{ budget.amount}}</td>
             	<td>{{ budget.date}}</td>
