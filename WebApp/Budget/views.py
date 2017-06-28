@@ -23,3 +23,13 @@ def months(request, month_id):
         return render(request, 'budget/months.html', {'inputs_month': inputs_month})
     except KeyError:
         raise Http404(month_id + ' is not a month!')
+
+def generic(request):
+    return render(request, 'budget/generic.html')
+
+def elements(request):
+    return render(request, 'budget/elements.html')
+
+def all_months(request):
+    months = ['January','February','March', 'April', 'May','June','July','August','September','October','November','December'];
+    return render(request, 'budget/all_months.html', {'months' : months})
