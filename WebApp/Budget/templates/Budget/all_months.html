@@ -1,0 +1,75 @@
+<!--
+
+
+This is a page that shows all of the months and their sums, you click on one to go to it
+
+-->
+
+<!DOCTYPE HTML>
+<!--    
+    This is the About Us Tab link
+-->
+{% load static %}
+
+<html>
+	<head>
+		<title>All Months - Personal Finance Tracker 2.0</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static "budget/assets/css/main.css" %}" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Personal Finance Tracker 2.0</strong> by Patch</a>
+					<nav id="nav">
+						<a href="/budget/">Home</a>
+						<a href="generic.html">Budget Detail</a>
+                     <a href="all_months.html">By Month</a>
+						<a href="elements.html">About Us</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>All Months Budgets</h2>
+						<p>This is a page about us and stuff </p>
+					</header>
+					<hr class="major" />
+                 <h4>Budget Months:</h4>
+						<p>Click a month to dive deeper! </p>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Month</th>
+													<th>Year</th>
+													<th>Total</th>
+												</tr>
+											</thead>
+											<tbody>
+                                    {% if months %}
+                                    {%for each in months %}
+                                    	<tbody>
+                                    		<tr>
+                                    			<td><a href="/budget/{{each}}">{{ each }}</a></td>
+                                    			<td>2017 -- Not working yet</td>
+                                           	<td>Not connected yet</td>
+                                    		</tr>
+                                    	</tbody>
+                                    {% endfor %} 
+                                    {% endif %}
+                                    </tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>Sum -- not working yet</td>
+												</tr>
+											</tfoot>
+										</table>

@@ -12,5 +12,11 @@ urlpatterns = [
     url(r'^(?P<month_id>[\w\-]+)/$', views.months, name='months'),
     # /budget/<budget.id>/favorite, does some logic and sends back
     url(r'^(?P<month_id>[\w\-]+)/$', views.months, name='months'),
+    # /budget/generic.html
+    url(r'^generic.html$', views.generic, name='generic'),
+    # /budget/elements.html
+    url(r'^elements.html$', views.elements, name='elements'),
+    # /budget/all_months.html
+    url(r'^all_months.html$', views.all_months, name='all_months'),
 
 ]
